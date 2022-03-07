@@ -1,0 +1,71 @@
+Ejercicio 8
+El fichero calificaciones.csv contiene las calificaciones de un curso. 
+Durante el curso se realizaron dos exámenes parciales de teoría y un 
+examen de prácticas. Los alumnos que tuvieron menos de 4 en alguno de 
+estos exámenes pudieron repetirlo en la al final del curso 
+(convocatoria ordinaria). Escribir un programa que contenga las 
+siguientes funciones:
+
+Una función que reciba el fichero de calificaciones y devuelva una 
+lista de diccionarios, donde cada diccionario contiene la información
+ de los exámenes y la asistencia de un alumno. La lista tiene que estar
+  ordenada por apellidos.
+
+Una función que reciba una lista de diccionarios como la que devuelve 
+la función anterior y añada a cada diccionario un nuevo par con la nota
+ final del curso. El peso de cada parcial de teoría en la nota final es
+  de un 30% mientras que el peso del examen de prácticas es de un 40%.
+
+Una función que reciba una lista de diccionarios como la que devuelve
+ la función anterior y devuelva dos listas, una con los alumnos aprobados
+ y otra con los alumnos suspensos. Para aprobar el curso, la asistencia 
+ tiene que ser mayor o igual que el 75%, la nota de los exámenes parciales
+  y de prácticas mayor o igual que 4 y la nota final mayor o igual que 5.
+
+
+[ ]
+def nota(cifra):
+    '''Función que elimina cambia las comas de separación de decimales por puntos de una cifra y la convierte en un real.
+    Parámetros:
+        - cifra: Es una cadena con una cifra.
+    Devuelve:
+        Un real con la cifra de la cadena después de cambiar el separador de decimales por punto.
+    '''
+    cifra = cifra.replace(',','.')
+    return float(cifra) 
+
+
+[{'Apellidos': 'Anido Bonet', 'Nombre': 'David', 'Asistencia': '90%', 'Parcial1': '5,5', 'Parcial2': '2,75', 'Ordinario1': '', 'Ordinario2': '5', 'Practicas': '', 'OrdinarioPracticas': '', 'Final1': 5.5, 'Final2': 5.0, 'FinalPracticas': 0, 'NotaFinal': 3.15},
+ {'Apellidos': 'Bueno Cerdeira', 'Nombre': 'Patricia', 'Asistencia': '95%', 'Parcial1': '9,5', 'Parcial2': '9', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '6,25', 'OrdinarioPracticas': '', 'Final1': 9.5, 'Final2': 9.0, 'FinalPracticas': 6.25, 'NotaFinal': 8.05},
+ {'Apellidos': 'Casariego García', 'Nombre': 'Raúl', 'Asistencia': '98%', 'Parcial1': '4,25', 'Parcial2': '5,75', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '4', 'OrdinarioPracticas': '5', 'Final1': 4.25, 'Final2': 5.75, 'FinalPracticas': 5.0, 'NotaFinal': 5.0},
+ {'Apellidos': 'Curbelo Sánchez', 'Nombre': 'Jorge', 'Asistencia': '75%', 'Parcial1': '6,75', 'Parcial2': '4,25', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '', 'OrdinarioPracticas': '6,5', 'Final1': 6.75, 'Final2': 4.25, 'FinalPracticas': 6.5, 'NotaFinal': 5.9},
+{'Apellidos': 'Díaz Souto', 'Nombre': 'Sofía', 'Asistencia': '82%', 'Parcial1': '7', 'Parcial2': '6,5', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '9', 'OrdinarioPracticas': '', 'Final1': 7.0, 'Final2': 6.5, 'FinalPracticas': 9.0, 'NotaFinal': 7.65},
+{'Apellidos': 'García Perez', 'Nombre': 'Yaiza', 'Asistencia': '85%', 'Parcial1': '10', 'Parcial2': '8', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '7,5', 'OrdinarioPracticas': '', 'Final1': 10.0, 'Final2': 8.0, 'FinalPracticas': 7.5, 'NotaFinal': 8.4},
+{'Apellidos': 'Sánchez Jordán', 'Nombre': 'María', 'Asistencia': '92%', 'Parcial1': '8,75', 'Parcial2': '9', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '6,5', 'OrdinarioPracticas': '', 'Final1': 8.75, 'Final2': 9.0, 'FinalPracticas': 6.5, 'NotaFinal': 7.924999999999999},
+{'Apellidos': 'Lorenzo García', 'Nombre': 'Jaime', 'Asistencia': '100%', 'Parcial1': '9,75', 'Parcial2': '8,25', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '7,5', 'OrdinarioPracticas': '', 'Final1': 9.75, 'Final2': 8.25, 'FinalPracticas': 7.5, 'NotaFinal': 8.4},
+{'Apellidos': 'Martínez Lucas', 'Nombre': 'Cecilia', 'Asistencia': '86%', 'Parcial1': '7', 'Parcial2': '4', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '6,25', 'OrdinarioPracticas': '', 'Final1': 7.0, 'Final2': 4.0, 'FinalPracticas': 6.25, 'NotaFinal': 5.8},
+{'Apellidos': 'Mora Peñaloza', 'Nombre': 'Sandra', 'Asistencia': '70%', 'Parcial1': '5,25', 'Parcial2': '2', 'Ordinario1': '', 'Ordinario2': '4', 'Practicas': '6,5', 'OrdinarioPracticas': '', 'Final1': 5.25, 'Final2': 4.0, 'FinalPracticas': 6.5, 'NotaFinal': 5.375},
+{'Apellidos': 'Morillo Escudero', 'Nombre': 'Ana', 'Asistencia': '100%', 'Parcial1': '9,5', 'Parcial2': '10', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '8,75', 'OrdinarioPracticas': '', 'Final1': 9.5, 'Final2': 10.0, 'FinalPracticas': 8.75, 'NotaFinal': 9.35},
+{'Apellidos': 'Muñoz Gómez', 'Nombre': 'Carolina', 'Asistencia': '94%', 'Parcial1': '7,75', 'Parcial2': '6,5', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '4', 'OrdinarioPracticas': '', 'Final1': 7.75, 'Final2': 6.5, 'FinalPracticas': 4.0, 'NotaFinal': 5.875},
+{'Apellidos': 'Ramirez de la Puente', 'Nombre': 'Raquel', 'Asistencia': '75%', 'Parcial1': '0', 'Parcial2': '1', 'Ordinario1': '1', 'Ordinario2': '2,75', 'Practicas': '2,25', 'OrdinarioPracticas': '3,25', 'Final1': 1.0, 'Final2': 2.75, 'FinalPracticas': 3.25, 'NotaFinal': 2.425},
+{'Apellidos': 'Riego Pizarro', 'Nombre': 'Carlos', 'Asistencia': '75%', 'Parcial1': '4', 'Parcial2': '2,5', 'Ordinario1': '5', 'Ordinario2': '3,75', 'Practicas': '', 'OrdinarioPracticas': '', 'Final1': 5.0, 'Final2': 3.75, 'FinalPracticas': 0, 'NotaFinal': 2.625},
+{'Apellidos': 'Rodríguez de Blas', 'Nombre': 'Ignacio', 'Asistencia': '80%', 'Parcial1': '8,25', 'Parcial2': '5,25', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '6,5', 'OrdinarioPracticas': '', 'Final1': 8.25, 'Final2': 5.25, 'FinalPracticas': 6.5, 'NotaFinal': 6.65},
+{'Apellidos': 'Moreno Angulo', 'Nombre': 'Antonio', 'Asistencia': '88%', 'Parcial1': '9', 'Parcial2': '6,75', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '5,25', 'OrdinarioPracticas': '', 'Final1': 9.0, 'Final2': 6.75, 'FinalPracticas': 5.25, 'NotaFinal': 6.824999999999999}]
+Lista de aprobados: ['Bueno Cerdeira, Patricia', 'Casariego García, Raúl', 'Curbelo Sánchez, Jorge', 'Díaz Souto, Sofía', 'García Perez, Yaiza', 'Sánchez Jordán, María', 'Lorenzo García, Jaime', 'Martínez Lucas, Cecilia', 'Morillo Escudero, Ana', 'Muñoz Gómez, Carolina', 'Rodríguez de Blas, Ignacio', 'Moreno Angulo, Antonio']
+Lista de suspensos: ['Anido Bonet, David', 'Mora Peñaloza, Sandra', 'Ramirez de la Puente, Raquel', 'Riego Pizarro, Carlos']
+
+
+
+{'Apellidos': 'Moreno Angulo', 'Nombre': 'Antonio', 'Asistencia': '88%', 'Parcial1': '9', 'Parcial2': '6,75', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '5,25', 'OrdinarioPracticas\n': '\n'}
+
+'Anido Bonet', 'Nombre': 'David', 'Asistencia': '90%', 'Parcial1': '5,5', 'Parcial2': '2,75', 
+'Ordinario1': '', 'Ordinario2': '5', 'Practicas': '', 'OrdinarioPracticas': '', 
+'Final1': 5.5, 'Final2': 5.0, 'FinalPracticas': 0, 'NotaFinal': 3.15}
+
+{'Apellidos': 'Bueno Cerdeira', 'Nombre': 'Patricia', 'Asistencia': '95%', 'Parcial1': '9,5',
+ 'Parcial2': '9', 'Ordinario1': '', 'Ordinario2': '', 'Practicas': '6,25', 'OrdinarioPracticas': '',
+  'Final1': 9.5, 'Final2': 9.0, 'FinalPracticas': 6.25, 'NotaFinal': 8.05},
+ 
+ {'Apellidos': 'Mora Peñaloza', 'Nombre': 'Sandra', 'Asistencia': '70%', 'Parcial1': '5,25',
+  'Parcial2': '2', 'Ordinario1': '', 'Ordinario2': '4', 'Practicas': '6,5', 'OrdinarioPracticas': '',
+   'Final1': 5.25, 'Final2': 4.0, 'FinalPracticas': 6.5, 'NotaFinal': 5.375},
